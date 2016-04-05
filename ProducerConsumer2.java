@@ -1,9 +1,9 @@
 import java.util.LinkedList;
 import java.util.Queue;
 /**
- * n producers and n consumers share
+ * N producers and N consumers share
  * a monitor protected non-thread-safe queue
- * @author baochuan
+ * @author Baochuan Lu
  *
  */
  
@@ -100,9 +100,9 @@ public class ProducerConsumer2{
       // each thread attempts to create NUM_MESSAGES messages
       // and put them in the shared buffer (queue)
       for (int i=0; i<NUM_MESSAGES; i++){
-        String message = "message "+i+" from thread "+getName();
+        String message = "'"+getName()+":message"+i+"'";
         buffer.add(message);
-        System.err.println("sent "+message);
+        System.err.println(getName()+" sent "+message);
         try{
           Thread.sleep((long)(Math.random()*10));
         }catch(InterruptedException e){}

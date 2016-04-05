@@ -1,9 +1,9 @@
 import java.util.LinkedList;
 import java.util.Queue;
+
 /**
- * n producers and n consumers share a non-thread-safe queue
- * @author baochuan
- *
+ * N producers and N consumers share a non-thread-safe queue
+ * @author Baochuan Lu
  */
  
 // driver class
@@ -60,12 +60,17 @@ public class ProducerConsumer{
     }
    
     public void run(){
-      // each thread attempts to create NUM_MESSAGES messages
-      // and put them in the shared buffer (queue)
+      // each thread attempts to "produce" NUM_MESSAGES messages
+      // and add them to the shared buffer (queue)
       for (int i=0; i<NUM_MESSAGES; i++){
-        String message = "message "+i+" from thread "+getName();
-        buffer.add(message);
-        System.err.println("sent "+message);
+        String message = "'"+getName()+":message"+i+"'";
+        try{
+          buffer.add(message);
+          System.err.println(getName()+" sent "+message);
+        }catch(Exception e){
+          System.err.println("Exception caught in "+getName());
+          System.err.println("\t"+e);
+        }
         try{
           Thread.sleep((long)(Math.random()*10));
         }catch(InterruptedException e){}
@@ -88,8 +93,13 @@ public class ProducerConsumer{
       while (count < NUM_MESSAGES){
         String message;
         if(!buffer.isEmpty()){
-          message = buffer.remove();
-          System.err.println(getName()+" received "+message);
+          try{
+            message = buffer.remove();
+            System.err.println(getName()+" received "+message);
+          }catch(Exception e){
+            System.err.println("Exception caught in "+getName());
+            System.err.println("\t"+e);
+          }
           count++;
         }
         try{

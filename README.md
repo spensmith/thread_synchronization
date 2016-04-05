@@ -2,7 +2,7 @@
 The tutorial explores thread synchronization issues using Java threads and solutions that make shared/concurrent data structures thread-safe in Java.
 
 ## Thread Execution
-The "two threads" example (`TwoThreadsTest.java`) creates a custom thread class (`SimpleThread`) by extending the Thread class and uses two instances of `SimpleThread` to execute two independent tasks (same code but different threads of execution). Note that outputs from the program is sent to standard error so that they are printed in real time to reflect the actual order of events.
+The "two threads" example (`TwoThreadsTest.java`) creates a custom thread class (`SimpleThread`) by extending the Thread class and uses two instances of `SimpleThread` to execute two independent tasks (same code but different threads of execution). Note that outputs from the program are sent to standard error so that they are printed in real time to reflect the actual order of events.
 
 Study `TwoThreadsTest.java` and run it several times. Examine the output to answer the following questions:
 

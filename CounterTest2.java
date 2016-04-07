@@ -55,11 +55,11 @@ public class CounterTest2{
   private static class Counter{
     int count =0;
 
-    public int increment(){
+    public synchronized int increment(){
       return ++count;
     }
 
-    public int decrement(){
+    public synchronized int decrement(){
       return --count;
     }
     

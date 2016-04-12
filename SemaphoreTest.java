@@ -9,8 +9,8 @@ public class SemaphoreTest{
   
   public static void main(String[] args) throws InterruptedException{
     SemaphoreTest s = new SemaphoreTest();
-    int NUM_PRODUCERS = 100;
-    int NUM_CONSUMERS = 100;
+    int NUM_PRODUCERS = 5;
+    int NUM_CONSUMERS = 5;
     
     // create and start the producer threads
     Thread[] producers = new Thread[NUM_PRODUCERS];
